@@ -17,7 +17,8 @@ namespace MyCraftQX.Utils
             // [$"{KeyPrefix}ModSettingButton"] = "[Mod]SettingPanelEnhancement",
             // [$"{KeyPrefix}Option_Off"] = "Close",
             // [$"{KeyPrefix}Option_On"] = "Open",
-            [$"{LocalizationHelper.KeyPrefix}crafting_table"] = "Crafting Table",
+            [$"Item_{LocalizationHelper.KeyPrefix}crafting_table"] = "Crafting Table",
+            [$"Item_{LocalizationHelper.KeyPrefix}crafting_table_Desc"] = "A table used for crafting items.\n\n<color=grey>[Mod:MyCraftQX]</color>"
         };
 
         public static void Init()

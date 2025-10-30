@@ -1,4 +1,6 @@
 ﻿using ItemStatsSystem;
+using System;
+using System.Linq;
 
 namespace MyCraftQX.UsageBehaviors
 {
@@ -6,12 +8,19 @@ namespace MyCraftQX.UsageBehaviors
     {
         public override bool CanBeUsed(Item item, object user)
         {
-            throw new System.NotImplementedException();
+            if (user is CharacterMainControl character && character != null && character.IsMainCharacter)
+            {
+                return true;
+            }
+            return false;
         }
 
         protected override void OnUse(Item item, object user)
         {
-            throw new System.NotImplementedException();
+            CraftView.SetupAndOpenView((static (craftingFormula) =>
+            {
+                return craftingFormula.tags.Contains("WorkBenchAdvanced");
+            }));
         }
     }
 }

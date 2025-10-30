@@ -1,6 +1,4 @@
 {
-  "SettingPanelEnhancementQX.ModSettingButton": "[Mod]設定パネル拡張",
-  "SettingPanelEnhancementQX.Option_Off": "閉じる",
-  "SettingPanelEnhancementQX.Option_On": "開く",
-  "Options_SettingPanelEnhancementQX.SelectPageNumber": "ページ番号"
+  "Item_MyCraftQX.crafting_table": "作業台",
+  "Item_MyCraftQX.crafting_table_Desc": "アイテムをクラフトするための作業台。右クリックでクラフトパネルを開きます。\n\n<color=grey>[Mod:MyCraftQX]</color>"
 }

@@ -17,6 +17,19 @@ namespace MyCraftQX
         private Item _item;
         private GameObject _gameObject;
 
+        private static Tag[] _allTags;
+        public static Tag[] AllTags
+        {
+            get
+            {
+                if (_allTags == null)
+                {
+                    _allTags = Resources.FindObjectsOfTypeAll<Tag>();
+                }
+                return _allTags;
+            }
+        }
+
         private ItemBuilder()
         {
             _gameObject = new GameObject("NewItem");
@@ -230,7 +243,7 @@ namespace MyCraftQX
                 return this;
             }
 
-            Tag[] array = Resources.FindObjectsOfTypeAll<Tag>();
+            Tag[] array = AllTags;
             var tag = array.FirstOrDefault((Tag t) => t.name == tagName);
             if (tag != null)
             {
@@ -245,7 +258,7 @@ namespace MyCraftQX
 
         public ItemBuilder AddTags(params string[] tagNames)
         {
-            Tag[] array = Resources.FindObjectsOfTypeAll<Tag>();
+            Tag[] array = AllTags;
             foreach (var tagName in tagNames)
             {
                 if (string.IsNullOrEmpty(tagName))

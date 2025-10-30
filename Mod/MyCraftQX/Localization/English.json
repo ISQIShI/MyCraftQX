@@ -1,6 +1,4 @@
 {
-  "SettingPanelEnhancementQX.ModSettingButton": "[Mod]SettingPanelEnhancement",
-  "SettingPanelEnhancementQX.Option_Off": "Close",
-  "SettingPanelEnhancementQX.Option_On": "Open",
-  "Options_SettingPanelEnhancementQX.SelectPageNumber": "Page Number"
+  "Item_MyCraftQX.crafting_table": "Crafting Table",
+  "Item_MyCraftQX.crafting_table_Desc": "A table used for crafting items. Right-click to open the crafting panel.\n\n<color=grey>[Mod:MyCraftQX]</color>"
 }

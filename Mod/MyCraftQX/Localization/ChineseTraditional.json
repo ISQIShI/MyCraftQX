@@ -1,6 +1,4 @@
 {
-  "SettingPanelEnhancementQX.ModSettingButton": "[Mod]設定面板增強",
-  "SettingPanelEnhancementQX.Option_Off": "關閉",
-  "SettingPanelEnhancementQX.Option_On": "開啟",
-  "Options_SettingPanelEnhancementQX.SelectPageNumber": "頁碼"
+  "Item_MyCraftQX.crafting_table": "工作臺",
+  "Item_MyCraftQX.crafting_table_Desc": "用於製作物品的工作臺,右鍵使用可以打開製作面板。\n\n<color=grey>[Mod:MyCraftQX]</color>"
 }
