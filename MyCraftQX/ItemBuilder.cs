@@ -3,6 +3,7 @@ using ItemStatsSystem;
 using ItemStatsSystem.Items;
 using MyCraftQX.Utils;
 using System;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -66,9 +67,9 @@ namespace MyCraftQX
         /// <summary>
         /// 设置显示名称的键
         /// </summary>
-        public ItemBuilder WithDisplayNameRaw(string displayNameRaw)
+        public ItemBuilder WithItemNameKey(string itemName)
         {
-            _item.DisplayNameRaw = displayNameRaw;
+            _item.DisplayNameRaw = $"Item_{LocalizationHelper.KeyPrefix}{itemName}";
             return this;
         }
 
@@ -78,6 +79,39 @@ namespace MyCraftQX
         public ItemBuilder WithIcon(Sprite icon)
         {
             _item.Icon = icon;
+            return this;
+        }
+
+        /// <summary>
+        /// 加载物品的图标
+        /// </summary>
+        /// <param name="iconFilePath">图标文件的路径</param>
+        /// <returns></returns>
+        public ItemBuilder LoadIconFromFilePath(string iconFilePath)
+        {
+            if (!File.Exists(iconFilePath))
+            {
+                Debug.LogError($"物品图标文件不存在：{iconFilePath}");
+                return this;
+            }
+            Texture2D texture2D = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            // 加载图片数据
+            byte[] imageData = File.ReadAllBytes(iconFilePath);
+            // 将图片数据加载到Texture2D对象中
+            if (!texture2D.LoadImage(imageData))
+            {
+                Debug.LogError($"加载物品图标数据到Texture2D失败：{iconFilePath}");
+                return this;
+            }
+            texture2D.filterMode = FilterMode.Bilinear;
+            texture2D.Apply();
+            Sprite iconSprite = Sprite.Create(texture2D, new Rect(0f, 0f, (float)texture2D.width, (float)texture2D.height), new Vector2(0.5f, 0.5f), 100f);
+            if (iconSprite == null)
+            {
+                Debug.LogError($"为物品图标创建Sprite失败：{iconFilePath}");
+                return this;
+            }
+            _item.Icon = iconSprite;
             return this;
         }
 
